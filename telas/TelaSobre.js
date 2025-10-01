@@ -1,33 +1,60 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image, useColorScheme } from 'react-native';
+import { ScrollView } from 'react-native-web';
 
 function TelaSobre() {
+    const scheme = useColorScheme();
+    const isDark = scheme === 'dark';
+
+    const bgColor = isDark ? '#121212' : '#f9f9f9';
+    const textColor = isDark ? '#ffffff' : '#333';
+    const titleColor = isDark ? '#ffb300' : '#053efbff';
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.titulo}>Bem-vindo à Tela Sobre!</Text>
+        <View style={[styles.container, { backgroundColor: bgColor }]}>
+            <Image
+                source={require('../assets/image/eu.jpg')}
+                style={[styles.foto, { borderColor: titleColor }]}
+            />
 
-            <View style={styles.secao}>
-                <Text style={styles.label}>Curso:</Text>
-                <Text style={styles.texto}>Desenvolvimento de Sistemas (Cursando)</Text>
-            </View>
+            <Text style={[styles.titulo, { color: titleColor }]}>ℹ️ Sobre Mim</Text>
 
-            <View style={styles.secao}>
-                <Text style={styles.label}>Habilidades:</Text>
-                <Text style={styles.texto}>
-                    - Rápido aprendizado{"\n"}
-                    - Fácil adaptação ao ambiente{"\n"}
-                    - Facilidade no contato com pessoas
-                </Text>
-            </View>
+            <ScrollView>
+                <View style={styles.secao}>
+                    <Text style={[styles.label, { color: textColor }]}>🎓 Curso:</Text>
+                    <Text style={[styles.texto, { color: textColor }]}>
+                        Desenvolvimento de Sistemas (Cursando)
+                    </Text>
+                </View>
 
-            <View style={styles.secao}>
-                <Text style={styles.label}>Experiências:</Text>
-                <Text style={styles.texto}>
-                    - Garçom{"\n"}
-                    - Ajudante de cozinha{"\n"}
-                    - Operador de máquina industrial{"\n"}
-                    - Auxiliar administrativo
-                </Text>
-            </View>
+                <View style={styles.secao}>
+                    <Text style={[styles.label, { color: textColor }]}>📖 Biografia:</Text>
+                    <Text style={[styles.texto, { color: textColor }]}>
+                        Meu nome é José Guilherme Basoa Cardoso. Sou uma pessoa comunicativa, resiliente e apaixonada por aprender. 
+                        Sempre gostei de esportes, especialmente vôlei, e encontrei na tecnologia uma oportunidade de unir disciplina e criatividade. 
+                        Busco evoluir constantemente, tanto no aspecto profissional quanto pessoal, valorizando o equilíbrio entre saúde, estudos e relacionamentos.
+                    </Text>
+                </View>
+
+                <View style={styles.secao}>
+                    <Text style={[styles.label, { color: textColor }]}>💡 Habilidades:</Text>
+                    <Text style={[styles.texto, { color: textColor }]}>
+                        - Rápido aprendizado{"\n"}
+                        - Fácil adaptação ao ambiente{"\n"}
+                        - Boa comunicação e trabalho em equipe{"\n"}
+                        - Foco em resultados
+                    </Text>
+                </View>
+
+                <View style={styles.secao}>
+                    <Text style={[styles.label, { color: textColor }]}>💼 Experiências:</Text>
+                    <Text style={[styles.texto, { color: textColor }]}>
+                        - Garçom{"\n"}
+                        - Ajudante de cozinha{"\n"}
+                        - Operador de máquina industrial{"\n"}
+                        - Auxiliar administrativo
+                    </Text>
+                </View>
+            </ScrollView>
         </View>
     );
 }
@@ -35,31 +62,37 @@ function TelaSobre() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#e8f0fe',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
+    },
+    foto: {
+        width: 120,
+        height: 120,
+        borderRadius: 60,
+        marginBottom: 20,
+        borderWidth: 2,
     },
     titulo: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 30,
-        color: '#1a73e8',
+        textAlign: 'center',
     },
     secao: {
         marginBottom: 20,
         width: '100%',
+        alignItems: 'center',
     },
     label: {
         fontSize: 18,
         fontWeight: '600',
-        color: '#555',
     },
     texto: {
         fontSize: 16,
-        color: '#333',
         marginTop: 5,
         lineHeight: 22,
+        textAlign: 'center',
     },
 });
 

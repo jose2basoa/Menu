@@ -1,33 +1,56 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Image, useColorScheme } from 'react-native';
+import { ScrollView } from 'react-native-web';
 
 function TelaInicio() {
+    const scheme = useColorScheme();
+    const isDark = scheme === 'dark';
+
+    const bgColor = isDark ? '#121212' : '#e8f0fe';
+    const textColor = isDark ? '#ffffff' : '#333';
+    const titleColor = isDark ? '#bb86fc' : '#34a853';
+
     return (
-        <View style={styles.container}>
-            <Text style={styles.titulo}>Bem-vindo à Tela Inicial!</Text>
+        <View style={[styles.container, { backgroundColor: bgColor }]}>
+            <Image
+                source={require('../assets/image/eu.jpg')}
+                style={[styles.foto, { borderColor: titleColor }]}
+            />
 
-            <View style={styles.secao}>
-                <Text style={styles.label}>Nome:</Text>
-                <Text style={styles.texto}>José Basoa</Text>
-            </View>
+            <Text style={[styles.titulo, { color: titleColor }]}>
+                🏠 Bem-vindo à Tela Inicial!
+            </Text>
 
-            <View style={styles.secao}>
-                <Text style={styles.label}>Hobbies:</Text>
-                <Text style={styles.texto}>Jogar vôlei, CS2, Academia</Text>
-            </View>
+            <ScrollView>
+                <View style={styles.secao}>
+                    <Text style={[styles.label, { color: textColor }]}>🙋 Nome:</Text>
+                    <Text style={[styles.texto, { color: textColor }]}>José Basoa</Text>
+                </View>
 
-            <View style={styles.secao}>
-                <Text style={styles.label}>Biografia:</Text>
-                <Text style={styles.texto}>
-                    Sou uma pessoa dedicada, apaixonada por esportes e tecnologia. Gosto de desafios e estou sempre buscando evoluir.
-                </Text>
-            </View>
+                <View style={styles.secao}>
+                    <Text style={[styles.label, { color: textColor }]}>🎮 Hobbies:</Text>
+                    <Text style={[styles.texto, { color: textColor }]}>
+                        Jogar vôlei, CS2, Academia
+                    </Text>
+                </View>
 
-            <View style={styles.secao}>
-                <Text style={styles.label}>Sonhos:</Text>
-                <Text style={styles.texto}>
-                    Ser rico e sustentar uma família com conforto e amor.
-                </Text>
-            </View>
+                <View style={styles.secao}>
+                    <Text style={[styles.label, { color: textColor }]}>📖 Biografia:</Text>
+                    <Text style={[styles.texto, { color: textColor }]}>
+                        Sou um jovem dedicado, apaixonado por esportes e tecnologia. 
+                        Atualmente curso Desenvolvimento de Sistemas, buscando sempre aprender e me aprimorar. 
+                        Tenho interesse em programação, musculação e jogos, equilibrando minha rotina entre estudo, trabalho e lazer. 
+                        Acredito na importância da disciplina e da evolução constante.
+                    </Text>
+                </View>
+
+                <View style={styles.secao}>
+                    <Text style={[styles.label, { color: textColor }]}>🌟 Sonhos:</Text>
+                    <Text style={[styles.texto, { color: textColor }]}>
+                        Construir uma carreira sólida na área de tecnologia, conquistar independência financeira 
+                        e sustentar uma família com conforto, amor e segurança.
+                    </Text>
+                </View>
+            </ScrollView>
         </View>
     );
 }
@@ -35,30 +58,37 @@ function TelaInicio() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#e8f0fe',
         justifyContent: 'center',
         alignItems: 'center',
         padding: 20,
+    },
+    foto: {
+        width: 120,
+        height: 120,
+        borderRadius: 60,
+        marginBottom: 20,
+        borderWidth: 2,
     },
     titulo: {
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 30,
-        color: '#1a73e8',
+        textAlign: 'center',
     },
     secao: {
         marginBottom: 20,
         width: '100%',
+        alignItems: 'center',
     },
     label: {
         fontSize: 18,
         fontWeight: '600',
-        color: '#555',
     },
     texto: {
         fontSize: 16,
-        color: '#333',
         marginTop: 5,
+        textAlign: 'center',
+        lineHeight: 22,
     },
 });
 

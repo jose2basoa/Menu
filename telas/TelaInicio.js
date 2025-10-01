@@ -1,5 +1,4 @@
-import { Text, View, StyleSheet, Image, useColorScheme, TouchableOpacity } from 'react-native';
-import { ScrollView } from 'react-native-web';
+import { Text, View, StyleSheet, Image, useColorScheme, TouchableOpacity, ScrollView } from 'react-native';
 
 function TelaInicio({ navigation }) {
     const scheme = useColorScheme();

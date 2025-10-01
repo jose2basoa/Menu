@@ -1,5 +1,4 @@
-import { Text, View, StyleSheet, Image, useColorScheme, TouchableOpacity } from 'react-native';
-import { ScrollView } from 'react-native-web';
+import { Text, View, StyleSheet, Image, useColorScheme, ScrollView, TouchableOpacity } from 'react-native';
 
 function TelaSobre({ navigation }) {
     const scheme = useColorScheme();

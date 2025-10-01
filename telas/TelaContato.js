@@ -1,5 +1,4 @@
-import { Text, View, StyleSheet, Image, TouchableOpacity, Linking, useColorScheme } from 'react-native';
-import { ScrollView } from 'react-native-web';
+import { Text, View, StyleSheet, Image, TouchableOpacity, ScrollView, Linking, useColorScheme } from 'react-native';
 
 function TelaContato({ navigation }) {
     const scheme = useColorScheme();

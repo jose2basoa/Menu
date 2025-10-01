@@ -1,13 +1,14 @@
-import { Text, View, StyleSheet, Image, useColorScheme } from 'react-native';
+import { Text, View, StyleSheet, Image, useColorScheme, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-web';
 
-function TelaInicio() {
+function TelaInicio({ navigation }) {
     const scheme = useColorScheme();
     const isDark = scheme === 'dark';
 
     const bgColor = isDark ? '#121212' : '#e8f0fe';
     const textColor = isDark ? '#ffffff' : '#333';
     const titleColor = isDark ? '#bb86fc' : '#34a853';
+    const buttonColor = isDark ? '#bb86fc' : '#34a853';
 
     return (
         <View style={[styles.container, { backgroundColor: bgColor }]}>
@@ -33,15 +34,6 @@ function TelaInicio() {
                     </Text>
                 </View>
 
-                <View style={styles.secao}>
-                    <Text style={[styles.label, { color: textColor }]}>📖 Biografia:</Text>
-                    <Text style={[styles.texto, { color: textColor }]}>
-                        Sou um jovem dedicado, apaixonado por esportes e tecnologia. 
-                        Atualmente curso Desenvolvimento de Sistemas, buscando sempre aprender e me aprimorar. 
-                        Tenho interesse em programação, musculação e jogos, equilibrando minha rotina entre estudo, trabalho e lazer. 
-                        Acredito na importância da disciplina e da evolução constante.
-                    </Text>
-                </View>
 
                 <View style={styles.secao}>
                     <Text style={[styles.label, { color: textColor }]}>🌟 Sonhos:</Text>
@@ -50,6 +42,19 @@ function TelaInicio() {
                         e sustentar uma família com conforto, amor e segurança.
                     </Text>
                 </View>
+                
+                <View style={styles.secao}>
+                    
+                    <TouchableOpacity 
+                        style={[styles.botao, { backgroundColor: buttonColor }]}
+                        onPress={() => navigation.navigate('Sobre')}
+                    >
+                        <Text style={[styles.botaoTexto, { color: textColor }]}>
+                            Saber mais sobre mim
+                        </Text>
+                    </TouchableOpacity>
+                </View>
+
             </ScrollView>
         </View>
     );
@@ -90,6 +95,17 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         lineHeight: 22,
     },
+    botao: {
+        marginTop: 10,
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+        alignItems: 'center',
+    },
+    botaoTexto: {
+        fontSize: 16,
+        fontWeight: '600',
+    }
 });
 
 export default TelaInicio;

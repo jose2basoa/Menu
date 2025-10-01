@@ -9,7 +9,7 @@ import TelaSobre from "./telas/TelaSobre";
 import TelaContato from "./telas/TelaContato";
 
 function App() {
-  const scheme = useColorScheme(); // "light" ou "dark"
+  const scheme = useColorScheme();
 
   return (
     <NavigationContainer theme={scheme === "dark" ? DarkTheme : DefaultTheme}>

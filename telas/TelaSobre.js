@@ -1,7 +1,7 @@
-import { Text, View, StyleSheet, Image, useColorScheme } from 'react-native';
+import { Text, View, StyleSheet, Image, useColorScheme, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-web';
 
-function TelaSobre() {
+function TelaSobre({ navigation }) {
     const scheme = useColorScheme();
     const isDark = scheme === 'dark';
 
@@ -54,6 +54,17 @@ function TelaSobre() {
                         - Auxiliar administrativo
                     </Text>
                 </View>
+
+                <View style={styles.secao}>
+                    <TouchableOpacity
+                        style={[styles.botao, { backgroundColor: titleColor }]}
+                        onPress={() => navigation.navigate('Contato')}
+                    >
+                        <Text style={[styles.botaoTexto, { color: textColor }]}>
+                            Entre em Contato
+                        </Text>
+                    </TouchableOpacity>
+                </View>
             </ScrollView>
         </View>
     );
@@ -93,6 +104,17 @@ const styles = StyleSheet.create({
         marginTop: 5,
         lineHeight: 22,
         textAlign: 'center',
+    },
+    botao: {
+        marginTop: 10,
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+        alignItems: 'center',
+    },
+    botaoTexto: {
+        fontSize: 16,
+        fontWeight: '600',
     },
 });
 

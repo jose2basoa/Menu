@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet, Image, TouchableOpacity, Linking, useColorScheme } from 'react-native';
 import { ScrollView } from 'react-native-web';
 
-function TelaContato() {
+function TelaContato({ navigation }) {
     const scheme = useColorScheme();
     const isDark = scheme === 'dark';
 
@@ -95,6 +95,17 @@ function TelaContato() {
                         e qualidade de vida para minha família.
                     </Text>
                 </View>
+
+                <View style={styles.secao}>
+                    <TouchableOpacity
+                        style={[styles.botao, { backgroundColor: titleColor }]}
+                        onPress={() => navigation.navigate('Inicio')}
+                    >
+                        <Text style={[styles.botaoTexto, { color: textColor }]}>
+                            Voltar ao Início
+                        </Text>
+                    </TouchableOpacity>
+                </View>
             </ScrollView>
         </View>
     );
@@ -134,6 +145,17 @@ const styles = StyleSheet.create({
         marginTop: 5,
         textAlign: 'center',
         lineHeight: 22,
+    },
+    botao: {
+        marginTop: 10,
+        paddingVertical: 12,
+        paddingHorizontal: 20,
+        borderRadius: 8,
+        alignItems: 'center',
+    },
+    botaoTexto: {
+        fontSize: 16,
+        fontWeight: '600',
     },
 });
 
